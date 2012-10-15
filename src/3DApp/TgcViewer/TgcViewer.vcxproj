@@ -92,7 +92,8 @@
     </Link>
     <Lib>
       <OutputFile>$(SolutionDir)Build\lib\TgcViewer.lib</OutputFile>
-      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
