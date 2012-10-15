@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{ddb27832-10d1-453b-8130-8c291ab1153f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Input">
+      <UniqueIdentifier>{e992ebcd-e24e-43f5-853f-60676108dfaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Graphics">
+      <UniqueIdentifier>{904ae484-d431-4665-9c97-bf1d8afa5080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Sound">
+      <UniqueIdentifier>{589d9072-6aab-4ce0-8800-e263a7188be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Windows">
+      <UniqueIdentifier>{25427f46-4478-44c0-bc56-30553ede8caf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\DXUT">
+      <UniqueIdentifier>{fa641fa6-4b8f-40fb-b8e9-4e4314148bf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Math">
+      <UniqueIdentifier>{0db768f4-d649-440d-89b5-53a1f1945a4d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Errors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\Window.h">
+      <Filter>Utils\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DxHelper.h">
+      <Filter>Utils\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicsLayer.h">
+      <Filter>Utils\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\Sound.h">
+      <Filter>Utils\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\SoundLayer.h">
+      <Filter>Utils\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\WAVREAD.H">
+      <Filter>Utils\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\InputLayer.h">
+      <Filter>Utils\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Keyboard.h">
+      <Filter>Utils\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Mouse.h">
+      <Filter>Utils\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUtils.h">
+      <Filter>Utils\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Model.h">
+      <Filter>Utils\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Tri.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\Window.cpp">
+      <Filter>Utils\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\GraphicsLayer.cpp">
+      <Filter>Utils\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\Sound.cpp">
+      <Filter>Utils\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\SoundLayer.cpp">
+      <Filter>Utils\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\WAVREAD.CPP">
+      <Filter>Utils\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\InputLayer.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Keyboard.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Mouse.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Model.cpp">
+      <Filter>Utils\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\DefaultShader.fx">
+      <Filter>Utils\Graphics</Filter>
+    </None>
+  </ItemGroup>
+</Project>
