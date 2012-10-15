@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3DApp", "3DApp\3DApp.vcxproj", "{1DAE7897-AE6E-4E3C-88C6-C554E7EB883F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3707685D-8B7B-4B95-A715-71FACC3E2144} = {3707685D-8B7B-4B95-A715-71FACC3E2144}
+		{915A1667-F9E7-48F4-814C-69E32AD5EAFA} = {915A1667-F9E7-48F4-814C-69E32AD5EAFA}
+		{988AEC70-6F03-4D6F-BDA0-213909410A70} = {988AEC70-6F03-4D6F-BDA0-213909410A70}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "Framework\Framework.vcxproj", "{988AEC70-6F03-4D6F-BDA0-213909410A70}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math3D", "Math3D\Math3D.vcxproj", "{3707685D-8B7B-4B95-A715-71FACC3E2144}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TgcViewer", "TgcViewer\TgcViewer.vcxproj", "{915A1667-F9E7-48F4-814C-69E32AD5EAFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DAE7897-AE6E-4E3C-88C6-C554E7EB883F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1DAE7897-AE6E-4E3C-88C6-C554E7EB883F}.Debug|Win32.Build.0 = Debug|Win32
+		{1DAE7897-AE6E-4E3C-88C6-C554E7EB883F}.Release|Win32.ActiveCfg = Release|Win32
+		{1DAE7897-AE6E-4E3C-88C6-C554E7EB883F}.Release|Win32.Build.0 = Release|Win32
+		{988AEC70-6F03-4D6F-BDA0-213909410A70}.Debug|Win32.ActiveCfg = Debug|Win32
+		{988AEC70-6F03-4D6F-BDA0-213909410A70}.Debug|Win32.Build.0 = Debug|Win32
+		{988AEC70-6F03-4D6F-BDA0-213909410A70}.Release|Win32.ActiveCfg = Release|Win32
+		{988AEC70-6F03-4D6F-BDA0-213909410A70}.Release|Win32.Build.0 = Release|Win32
+		{3707685D-8B7B-4B95-A715-71FACC3E2144}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3707685D-8B7B-4B95-A715-71FACC3E2144}.Debug|Win32.Build.0 = Debug|Win32
+		{3707685D-8B7B-4B95-A715-71FACC3E2144}.Release|Win32.ActiveCfg = Release|Win32
+		{3707685D-8B7B-4B95-A715-71FACC3E2144}.Release|Win32.Build.0 = Release|Win32
+		{915A1667-F9E7-48F4-814C-69E32AD5EAFA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{915A1667-F9E7-48F4-814C-69E32AD5EAFA}.Debug|Win32.Build.0 = Debug|Win32
+		{915A1667-F9E7-48F4-814C-69E32AD5EAFA}.Release|Win32.ActiveCfg = Release|Win32
+		{915A1667-F9E7-48F4-814C-69E32AD5EAFA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal
