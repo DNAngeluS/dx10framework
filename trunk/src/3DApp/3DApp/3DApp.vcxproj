@@ -42,6 +42,8 @@
     <OutDir>$(SolutionDir)Build\bin\</OutDir>
     <IntDir>.\$(Configuration)\</IntDir>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <IncludePath>$(VCInstallDir)PlatformSDK\include;$(VCInstallDir)PlatformSDK\common\include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(SolutionDir)DX\Include;$(SolutionDir)DX\DXUT\Core;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCInstallDir)PlatformSDK\lib;$(VCInstallDir)PlatformSDK\common\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(SolutionDir)DX\Lib\x86;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -80,7 +82,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)DX\Lib\x86;$(SolutionDir)Build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Build\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>d3d10.lib;d3dx10d.lib;winmm.lib;dsound.lib;dinput8.lib;dxguid.lib;odbc32.lib;odbccp32.lib;xmllite.lib;shlwapi.lib;Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <AssemblyDebug>
