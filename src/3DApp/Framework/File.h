@@ -134,7 +134,7 @@ public:
 
 	//XML READER
 	void OpenXML(LPCTSTR filename);
-	void ReadXML();
+	bool ReadXML();
 
 	void TokenizeXmlValue( std::queue< std::wstring >* pList, TCHAR commentChar = '#' );
 

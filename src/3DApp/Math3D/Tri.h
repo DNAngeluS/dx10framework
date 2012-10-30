@@ -29,4 +29,6 @@ struct tri
 	}
 };
 
+typedef tri<WORD> sTri;
+
 #endif //_TRI_H

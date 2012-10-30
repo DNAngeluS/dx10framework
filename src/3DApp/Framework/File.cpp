@@ -278,8 +278,12 @@ void cFile::OpenXML(LPCTSTR filename)
 	m_pReader->SetProperty(XmlReaderProperty_DtdProcessing, DtdProcessing_Prohibit);
 	m_pReader->SetInput(m_pFileStream);
  }
-
-void cFile::ReadXML()
+/**
+*
+*
+*
+*/
+bool cFile::ReadXML()
 {
 	HRESULT hr = S_OK; 
     if(S_OK == (hr = m_pReader->Read(&m_nodeType))) 
@@ -323,7 +327,7 @@ void cFile::ReadXML()
 
             break; 
         case XmlNodeType_DocumentType: 
-            
+            return false;
             break; 
         } 
     } 

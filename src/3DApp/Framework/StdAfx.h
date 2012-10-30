@@ -32,15 +32,10 @@
 #include "File.h"
 
 // Framework files
-#include "Application.h"
-#include "Window.h"
-#include "GraphicsLayer.h"
-#include "Keyboard.h"
-#include "Mouse.h"
-#include "InputLayer.h"
-#include "SoundLayer.h"
-#include "wavread.h"
-#include "Sound.h"
+#include "..\Framework\Application.h"
+#include "..\Framework\Window\Window.h"
+#include "..\Framework\Graphics\DxHelper.h"
+#include "..\Framework\Graphics\GraphicsLayer.h"
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ inserta declaraciones adicionales luego de la linea anterior.

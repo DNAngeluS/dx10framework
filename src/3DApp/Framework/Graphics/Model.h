@@ -10,8 +10,6 @@
 
 class cModel  
 {
-	typedef tri<WORD> sTri;
-
 	std::vector< sTri >		m_tris;
 	std::vector< sTri >		m_colors;
 	std::vector< sTri >		m_textures;
