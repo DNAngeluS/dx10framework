@@ -36,7 +36,9 @@
 //#include "..\Framework\Globals.h"
 //#include "..\Framework\File.h"
 //#include "..\Framework\Types.h"
-
+#include "..\Framework\Application.h"
+#include "..\Framework\Graphics\GraphicsLayer.h"
+#include "..\Framework\Graphics\DxHelper.h"
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ inserta declaraciones adicionales luego de la linea anterior.

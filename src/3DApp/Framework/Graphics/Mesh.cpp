@@ -11,7 +11,7 @@ cMesh::cMesh(const LPCTSTR filename)
 	D3D10_BUFFER_DESC descBuffer; //Se crea la estructura que describe el vertexBuffer
 	memset(&descBuffer, 0, sizeof(descBuffer));
     descBuffer.Usage = D3D10_USAGE_DEFAULT;
-	descBuffer.ByteWidth = sizeof(cGraphicsLayer::cDefaultVertex) * NumVerts();
+	descBuffer.ByteWidth = sizeof(sVERTEX) * NumVerts();
     descBuffer.BindFlags = D3D10_BIND_VERTEX_BUFFER;
     descBuffer.CPUAccessFlags = 0;
     descBuffer.MiscFlags = 0;
@@ -41,7 +41,11 @@ cMesh::cMesh(const LPCTSTR filename)
 	vRotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	vScale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
 
-	D3DXMatrixIdentity(&m_mtxTransform);
+	D3DXMatrixIdentity(&mtxTransform);
+
+	D3DX10CreateMesh(Graphics()->GetDevice(), VERTEXLAYOUT , sizeof(VERTEXLAYOUT),
+		cDefaultVertex::Semantics(cDefaultVertex::POSITION), NumVerts(), NumTris(), D3DX10_MESH_32_BIT, &m_pMesh);
+
 }
 
 
@@ -56,7 +60,7 @@ void cMesh::Scale(float amt)
 	int size = m_verts.size();
 	for(int i=0; i<size; i++)
 	{
-		D3DXVec3Scale(&m_verts[i].m_vPosition, &m_verts[i].m_vPosition, amt);
+		D3DXVec3Scale(&m_verts[i].vPosition, &m_verts[i].vPosition, amt);
 	}
 }
 
@@ -65,7 +69,7 @@ void cMesh::Update(float timeDelta)
 	UpdateTransform();
 
 	//seteo la matriz de transfromacion
-	Graphics()->SetWorldMtx(m_mtxTransform);
+	Graphics()->SetWorldMtx(mtxTransform);
 	//update de las variables de Matrices y luces
 	Graphics()->UpdateMatrices();
 	Graphics()->UpdateLights();
@@ -73,7 +77,7 @@ void cMesh::Update(float timeDelta)
 
 void cMesh::Draw()
 {
-	UINT uiStride = sizeof(cGraphicsLayer::cDefaultVertex);
+	UINT uiStride = sizeof(sVERTEX);
 	UINT uiOffset = 0;
 
 	//Se setea el buffer para renderizar
@@ -97,13 +101,13 @@ void cMesh::UpdateTransform()
 {
 	//Se calcula la matriz de transformacion
 	D3DXMATRIX matrix;
-	D3DXMatrixIdentity(&m_mtxTransform);
+	D3DXMatrixIdentity(&mtxTransform);
 	D3DXMatrixScaling(&matrix, vScale.x, vScale.y, vScale.z);
-	D3DXMatrixMultiply(&m_mtxTransform, &m_mtxTransform, &matrix);
+	D3DXMatrixMultiply(&mtxTransform, &mtxTransform, &matrix);
 	D3DXMatrixRotationYawPitchRoll(&matrix, vRotation.y, vRotation.x, vRotation.z);
-	D3DXMatrixMultiply(&m_mtxTransform, &m_mtxTransform, &matrix);
+	D3DXMatrixMultiply(&mtxTransform, &mtxTransform, &matrix);
 	D3DXMatrixTranslation(&matrix, vTranslation.x, vTranslation.y, vTranslation.z);
-	D3DXMatrixMultiply(&m_mtxTransform, &m_mtxTransform, &matrix);	
+	D3DXMatrixMultiply(&mtxTransform, &mtxTransform, &matrix);	
 }
 
 float cMesh::GenRadius()
@@ -112,7 +116,7 @@ float cMesh::GenRadius()
 	int size = m_verts.size();
 	for(int i=0; i<size; i++)
 	{
-		float curr = D3DXVec3Length(&m_verts[i].m_vPosition);
+		float curr = D3DXVec3Length(&m_verts[i].vPosition);
 		if(curr > best)
 			best = curr;
 	}

@@ -151,6 +151,7 @@
     <ClInclude Include="Graphics\GraphicsLayer.h" />
     <ClInclude Include="Graphics\Model.h" />
     <ClInclude Include="Graphics\Texture.h" />
+    <ClInclude Include="Graphics\Vertex.h" />
     <ClInclude Include="Input\InputLayer.h" />
     <ClInclude Include="Input\Keyboard.h" />
     <ClInclude Include="Input\Mouse.h" />

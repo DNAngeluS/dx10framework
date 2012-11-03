@@ -3,21 +3,21 @@
 
 #include <vector>
 #include <string>
-#include "..\Framework\Application.h"
+#include "..\DX\Include\D3DX10mesh.h"
+
 #include "..\Math3D\Tri.h"
 #include "..\Math3D\mathD3D.h"
-#include "..\Framework\Graphics\GraphicsLayer.h"
+
 
 using namespace std;
 
 class cMesh  
 {
-	typedef tri<WORD> sTri;
-
+protected:
 	vector< sTri >		m_tris;
 	vector< sTri >		m_colors;
 	vector< sTri >		m_textures;
-	vector< cGraphicsLayer::cDefaultVertex >	m_verts;
+	vector< sVERTEX >	m_verts;
 
 	std::wstring			m_name;
 	std::wstring			m_texture;
@@ -28,7 +28,8 @@ class cMesh
 	ID3D10Resource*				m_pTexture;
 	ID3D10ShaderResourceView*	m_pSRView;
 
-private:
+	ID3DX10Mesh*				m_pMesh;
+
 	void UpdateTransform();
 
 public:
@@ -36,7 +37,7 @@ public:
 	D3DXVECTOR3				vRotation;
 	D3DXVECTOR3				vScale;
 
-	D3DXMATRIX				m_mtxTransform;
+	D3DXMATRIX				mtxTransform;
 
 
 	vector<D3DXVECTOR3>	vertices, normals;
@@ -58,7 +59,7 @@ public:
 	int NumTris(){ return m_tris.size(); }
 	const TCHAR* Name(){ return m_name.c_str(); }
 
-	cGraphicsLayer::cDefaultVertex* VertData(){ return &m_verts[0]; }
+	sVERTEX* VertData(){ return &m_verts[0]; }
 	sTri* TriData(){ return &m_tris[0]; }
 
 };

@@ -41,6 +41,7 @@
 #include "SoundLayer.h"
 #include "wavread.h"
 #include "Sound.h"
+#include "Vertex.h"
 
 
 //{{AFX_INSERT_LOCATION}}

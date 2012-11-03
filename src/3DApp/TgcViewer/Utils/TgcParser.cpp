@@ -227,7 +227,7 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 		pReader->GetValue(&value, NULL);	//String
 		file.TokenizeValue(&m_tokens, ' ');
 		
-		m_colors.reserve(nColors);
+		modelColors.reserve(nColors);
 		for(int j = 0; j < nColors; j++)
 		{
 			sTri tri;
@@ -239,7 +239,7 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 			tri.v[2] = _wtoi(m_tokens.front().c_str());
 			m_tokens.pop();
 
-			m_colors.push_back(tri);
+			modelColors.push_back(tri);
 		}		
 
 		file.Read(); //</colorsIdx>
@@ -349,31 +349,31 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 
 		nVerts = nTris * 3;
 
-		m_verts.reserve(nVerts);
+		modelVerts.reserve(nVerts);
 		for(int j = 0; j < nTris; j++)
 		{
 			cGraphicsLayer::cDefaultVertex v1, v2, v3;
 
 			v1.m_vPosition	=	vertices[modelTris[j].v[0]];
-			v1.m_vColor		=	colors[m_colors[j].v[0]];
+			v1.m_vColor		=	colors[modelColors[j].v[0]];
 			v1.m_vNormal	=	normals[modelTris[j].v[0]];
 			v1.m_TexCoords	=	textures[modelTextures[j].v[0]];
-			m_verts.push_back(v1);
-			tris.push_back(m_verts.size() - 1);
+			modelVerts.push_back(v1);
+			tris.push_back(modelVerts.size() - 1);
 
 			v2.m_vPosition	=	vertices[modelTris[j].v[1]];
-			v2.m_vColor		=	colors[m_colors[j].v[1]];
+			v2.m_vColor		=	colors[modelColors[j].v[1]];
 			v2.m_vNormal	=	normals[modelTris[j].v[1]];
 			v2.m_TexCoords	=	textures[modelTextures[j].v[1]];
-			m_verts.push_back(v2);
-			tris.push_back(m_verts.size() - 1);
+			modelVerts.push_back(v2);
+			tris.push_back(modelVerts.size() - 1);
 
 			v3.m_vPosition	=	vertices[modelTris[j].v[2]];
-			v3.m_vColor		=	colors[m_colors[j].v[2]];
+			v3.m_vColor		=	colors[modelColors[j].v[2]];
 			v3.m_vNormal	=	normals[modelTris[j].v[2]];
 			v3.m_TexCoords	=	textures[modelTextures[j].v[2]];
-			m_verts.push_back(v3);
-			tris.push_back(m_verts.size() - 1);
+			modelVerts.push_back(v3);
+			tris.push_back(modelVerts.size() - 1);
 		}
 	}
 
