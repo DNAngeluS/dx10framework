@@ -416,19 +416,20 @@ void cGraphicsLayer::CreateDefaultShader()
 	}
 
 	// Setea el layout para el input
-    D3D10_INPUT_ELEMENT_DESC defaultLayout[] =
-    {
-        {"POSITION",	0, DXGI_FORMAT_R32G32B32_FLOAT,		0, 0,								D3D10_INPUT_PER_VERTEX_DATA, 0},  
-		{"NORMAL",		0, DXGI_FORMAT_R32G32B32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
-		{"COLOR",		0, DXGI_FORMAT_R32G32B32A32_FLOAT,	0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
-		{"TEXCOORD",	0, DXGI_FORMAT_R32G32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
-		{"TEXCOORD",	1, DXGI_FORMAT_R32G32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
-	};
+    //D3D10_INPUT_ELEMENT_DESC* defaultLayout = cDefaultVertex::GetDefaultVertexDesc();
+    //{
+    //   {"POSITION",	0, DXGI_FORMAT_R32G32B32_FLOAT,		0, 0,								D3D10_INPUT_PER_VERTEX_DATA, 0},  
+	//	{"NORMAL",		0, DXGI_FORMAT_R32G32B32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
+	//	{"COLOR",		0, DXGI_FORMAT_R32G32B32A32_FLOAT,	0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
+	//	{"TEXCOORD",	0, DXGI_FORMAT_R32G32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
+	//	{"TEXCOORD",	1, DXGI_FORMAT_R32G32_FLOAT,		0, D3D10_APPEND_ALIGNED_ELEMENT,	D3D10_INPUT_PER_VERTEX_DATA, 0}, 
+	//};
+	//cDefaultVertex::GetDefaultVertexDesc(&defaultLayout);
 
-	UINT uiNumElements = sizeof(defaultLayout)/sizeof(defaultLayout[0]);
+	UINT uiNumElements = sizeof(VERTEXLAYOUT)/sizeof(VERTEXLAYOUT[0]);
 	D3D10_PASS_DESC descPass;
     m_pDefaultTechnique->GetPassByIndex(0)->GetDesc(&descPass);
-    r = m_pDevice->CreateInputLayout(defaultLayout, uiNumElements, 
+    r = m_pDevice->CreateInputLayout(VERTEXLAYOUT, uiNumElements, 
 		descPass.pIAInputSignature, descPass.IAInputSignatureSize, &m_pDefaultInputLayout);
     if(FAILED(r))
     {

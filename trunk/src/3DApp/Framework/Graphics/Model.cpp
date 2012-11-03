@@ -11,7 +11,7 @@ cModel::cModel(const TCHAR* name, int nVerts, int nTris) :
 	int i;
 
 	m_verts.reserve(nVerts);
-	cGraphicsLayer::cDefaultVertex vert;
+	sVERTEX vert;
 	for(i=0; i<nVerts; i++)
 	{
 		m_verts.push_back(vert);
@@ -339,26 +339,26 @@ cModel::cModel(const LPCTSTR filename)
 		m_verts.reserve(nVerts);
 		for(int j = 0; j < nTris; j++)
 		{
-			cGraphicsLayer::cDefaultVertex v1, v2, v3;
+			sVERTEX v1, v2, v3;
 
-			v1.m_vPosition	=	vertices[m_tris[j].v[0]];
-			v1.m_vColor		=	colors[m_colors[j].v[0]];
-			v1.m_vNormal	=	normals[m_tris[j].v[0]];
-			v1.m_TexCoords	=	textures[m_textures[j].v[0]];
+			v1.vPosition	=	vertices[m_tris[j].v[0]];
+			v1.cColor		=	colors[m_colors[j].v[0]];
+			v1.vNormal	=	normals[m_tris[j].v[0]];
+			v1.vTexCoords	=	textures[m_textures[j].v[0]];
 			m_verts.push_back(v1);
 			tris.push_back(m_verts.size() - 1);
 
-			v2.m_vPosition	=	vertices[m_tris[j].v[1]];
-			v2.m_vColor		=	colors[m_colors[j].v[1]];
-			v2.m_vNormal	=	normals[m_tris[j].v[1]];
-			v2.m_TexCoords	=	textures[m_textures[j].v[1]];
+			v2.vPosition	=	vertices[m_tris[j].v[1]];
+			v2.cColor		=	colors[m_colors[j].v[1]];
+			v2.vNormal	=	normals[m_tris[j].v[1]];
+			v2.vTexCoords	=	textures[m_textures[j].v[1]];
 			m_verts.push_back(v2);
 			tris.push_back(m_verts.size() - 1);
 
-			v3.m_vPosition	=	vertices[m_tris[j].v[2]];
-			v3.m_vColor		=	colors[m_colors[j].v[2]];
-			v3.m_vNormal	=	normals[m_tris[j].v[2]];
-			v3.m_TexCoords	=	textures[m_textures[j].v[2]];
+			v3.vPosition	=	vertices[m_tris[j].v[2]];
+			v3.cColor		=	colors[m_colors[j].v[2]];
+			v3.vNormal	=	normals[m_tris[j].v[2]];
+			v3.vTexCoords	=	textures[m_textures[j].v[2]];
 			m_verts.push_back(v3);
 			tris.push_back(m_verts.size() - 1);
 		}
@@ -375,7 +375,7 @@ cModel::cModel(const LPCTSTR filename)
 	D3D10_BUFFER_DESC descBuffer; //Se crea la estructura que describe el vertexBuffer
 	memset(&descBuffer, 0, sizeof(descBuffer));
     descBuffer.Usage = D3D10_USAGE_DEFAULT;
-	descBuffer.ByteWidth = sizeof(cGraphicsLayer::cDefaultVertex) * NumVerts();
+	descBuffer.ByteWidth = sizeof(sVertex) * NumVerts();
     descBuffer.BindFlags = D3D10_BIND_VERTEX_BUFFER;
     descBuffer.CPUAccessFlags = 0;
     descBuffer.MiscFlags = 0;
@@ -413,7 +413,7 @@ void cModel::Scale(float amt)
 	int size = m_verts.size();
 	for(int i=0; i<size; i++)
 	{
-		D3DXVec3Scale(&m_verts[i].m_vPosition, &m_verts[i].m_vPosition, amt);
+		D3DXVec3Scale(&m_verts[i].vPosition, &m_verts[i].vPosition, amt);
 	}
 }
 
@@ -430,7 +430,7 @@ void cModel::Update(float timeDelta)
 
 void cModel::Draw()
 {
-	UINT uiStride = sizeof(cGraphicsLayer::cDefaultVertex);
+	UINT uiStride = sizeof(sVERTEX);
 	UINT uiOffset = 0;
 
 	//Se setea el buffer para renderizar
@@ -469,7 +469,7 @@ float cModel::GenRadius()
 	int size = m_verts.size();
 	for(int i=0; i<size; i++)
 	{
-		float curr = D3DXVec3Length(&m_verts[i].m_vPosition);
+		float curr = D3DXVec3Length(&m_verts[i].vPosition);
 		if(curr > best)
 			best = curr;
 	}

@@ -7,13 +7,14 @@
 #include "..\Math3D\Tri.h"
 #include "..\Math3D\mathD3D.h"
 #include "..\Framework\Graphics\GraphicsLayer.h"
+#include "..\Framework\Graphics\Vertex.h"
 
 class cModel  
 {
 	std::vector< sTri >		m_tris;
 	std::vector< sTri >		m_colors;
 	std::vector< sTri >		m_textures;
-	std::vector< cGraphicsLayer::cDefaultVertex >	m_verts;
+	std::vector< sVERTEX >	m_verts;
 
 	std::wstring			m_name;
 	std::wstring			m_texture;
@@ -49,7 +50,7 @@ public:
 	int NumTris(){ return m_tris.size(); }
 	const TCHAR* Name(){ return m_name.c_str(); }
 
-	cGraphicsLayer::cDefaultVertex* VertData(){ return &m_verts[0]; }
+	sVERTEX* VertData(){ return &m_verts[0]; }
 	sTri* TriData(){ return &m_tris[0]; }
 
 };

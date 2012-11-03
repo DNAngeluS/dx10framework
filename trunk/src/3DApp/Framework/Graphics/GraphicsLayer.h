@@ -22,14 +22,6 @@ using std::list;
 class cGraphicsLayer
 {
 public:
-	class cDefaultVertex
-	{
-	public:
-		D3DXVECTOR3 m_vPosition;  
-		D3DXVECTOR3 m_vNormal;
-		D3DXCOLOR m_vColor;
-		D3DXVECTOR2 m_TexCoords;
-	};
 
 	class cLight
 	{
