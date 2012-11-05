@@ -337,6 +337,7 @@ cModel::cModel(const LPCTSTR filename)
 		nVerts = nTris * 3;
 
 		m_verts.reserve(nVerts);
+		tris.reserve(nVerts);
 		for(int j = 0; j < nTris; j++)
 		{
 			sVERTEX v1, v2, v3;
@@ -375,7 +376,7 @@ cModel::cModel(const LPCTSTR filename)
 	D3D10_BUFFER_DESC descBuffer; //Se crea la estructura que describe el vertexBuffer
 	memset(&descBuffer, 0, sizeof(descBuffer));
     descBuffer.Usage = D3D10_USAGE_DEFAULT;
-	descBuffer.ByteWidth = sizeof(sVertex) * NumVerts();
+	descBuffer.ByteWidth = sizeof(sVERTEX) * NumVerts();
     descBuffer.BindFlags = D3D10_BIND_VERTEX_BUFFER;
     descBuffer.CPUAccessFlags = 0;
     descBuffer.MiscFlags = 0;

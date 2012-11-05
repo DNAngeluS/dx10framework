@@ -81,9 +81,6 @@
     <ClInclude Include="Input\Mouse.h">
       <Filter>Utils\Input</Filter>
     </ClInclude>
-    <ClInclude Include="DXUtils.h">
-      <Filter>Utils\DXUT</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Model.h">
       <Filter>Utils\Graphics</Filter>
     </ClInclude>
@@ -97,6 +94,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUtils\DXUtils.h">
+      <Filter>Utils\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUtils\MeshLoader10.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -141,6 +144,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUtils\MeshLoader10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -31,6 +31,9 @@
 #include "Types.h"
 #include "File.h"
 
+#include "..\DX\DXUT\Core\DXUT.h"
+#include "..\DX\DXUT\Optional\SDKmisc.h"
+
 // Framework files
 #include "Application.h"
 #include "Window.h"

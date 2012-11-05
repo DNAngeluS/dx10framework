@@ -31,7 +31,7 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 	std::vector< sTri >		modelTris;
 	std::vector< sTri >		modelColors;
 	std::vector< sTri >		modelTextures;
-	std::vector< cGraphicsLayer::cDefaultVertex >	modelVerts;
+	std::vector< sVERTEX >	modelVerts;
 	std::wstring			modelName;
 	std::wstring			modelTexture;
 
@@ -352,26 +352,26 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 		modelVerts.reserve(nVerts);
 		for(int j = 0; j < nTris; j++)
 		{
-			cGraphicsLayer::cDefaultVertex v1, v2, v3;
+			sVERTEX v1, v2, v3;
 
-			v1.m_vPosition	=	vertices[modelTris[j].v[0]];
-			v1.m_vColor		=	colors[modelColors[j].v[0]];
-			v1.m_vNormal	=	normals[modelTris[j].v[0]];
-			v1.m_TexCoords	=	textures[modelTextures[j].v[0]];
+			v1.vPosition	=	vertices[modelTris[j].v[0]];
+			v1.cColor		=	colors[modelColors[j].v[0]];
+			v1.vNormal	=	normals[modelTris[j].v[0]];
+			v1.vTexCoords	=	textures[modelTextures[j].v[0]];
 			modelVerts.push_back(v1);
 			tris.push_back(modelVerts.size() - 1);
 
-			v2.m_vPosition	=	vertices[modelTris[j].v[1]];
-			v2.m_vColor		=	colors[modelColors[j].v[1]];
-			v2.m_vNormal	=	normals[modelTris[j].v[1]];
-			v2.m_TexCoords	=	textures[modelTextures[j].v[1]];
+			v2.vPosition	=	vertices[modelTris[j].v[1]];
+			v2.cColor		=	colors[modelColors[j].v[1]];
+			v2.vNormal	=	normals[modelTris[j].v[1]];
+			v2.vTexCoords	=	textures[modelTextures[j].v[1]];
 			modelVerts.push_back(v2);
 			tris.push_back(modelVerts.size() - 1);
 
-			v3.m_vPosition	=	vertices[modelTris[j].v[2]];
-			v3.m_vColor		=	colors[modelColors[j].v[2]];
-			v3.m_vNormal	=	normals[modelTris[j].v[2]];
-			v3.m_TexCoords	=	textures[modelTextures[j].v[2]];
+			v3.vPosition	=	vertices[modelTris[j].v[2]];
+			v3.cColor		=	colors[modelColors[j].v[2]];
+			v3.vNormal	=	normals[modelTris[j].v[2]];
+			v3.vTexCoords	=	textures[modelTextures[j].v[2]];
 			modelVerts.push_back(v3);
 			tris.push_back(modelVerts.size() - 1);
 		}

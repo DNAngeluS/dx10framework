@@ -59,6 +59,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 cApplication::cApplication()
 {
 	char	filepath[_MAX_PATH] = "\0";
+	WCHAR	path[MAX_PATH];
 	wchar_t tmp[_MAX_PATH] = L"\0";		
 	if( m_pGlobalApp )
 	{
@@ -73,26 +74,21 @@ cApplication::cApplication()
 	m_bActive = true;
 
 	//Se crean los Paths absolutos
-	_fullpath(filepath, ".\\", _MAX_PATH);
-	mbstowcs(tmp, filepath ,_MAX_PATH);
-	m_dAppRoot.append(tmp);
+	GetCurrentDirectory(MAX_PATH, path);
+
+	m_dAppRoot.append(path);
 	m_dAppRoot.append(L"\\");
 
-	_fullpath(filepath, ".\\Media", _MAX_PATH);
-	mbstowcs(tmp, filepath ,_MAX_PATH);
-	m_dAppMedia.append(tmp);
-	m_dAppMedia.append(L"\\");
+	m_dAppMedia.append(m_dAppRoot+L"Media\\");	
 
-	_fullpath(filepath, "..\\", _MAX_PATH);
-	mbstowcs(tmp, filepath ,_MAX_PATH);
-	m_dRoot.append(tmp);
+	SetCurrentDirectory(L"..\\");
+	GetCurrentDirectory(MAX_PATH, path);
+	m_dRoot.append(path);
 	m_dRoot.append(L"\\");
 
-	_fullpath(filepath, "..\\Media", _MAX_PATH);
-	mbstowcs(tmp, filepath ,_MAX_PATH);
-	m_dMedia.append(tmp);
-	m_dMedia.append(L"\\");
+	m_dMedia.append(m_dRoot+L"Media\\");	
 	
+	SetCurrentDirectory(m_dAppRoot.c_str());
 }
 
 

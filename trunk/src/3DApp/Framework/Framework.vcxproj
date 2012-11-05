@@ -67,7 +67,7 @@
       </OpenMPSupport>
       <CompileAs>CompileAsCpp</CompileAs>
       <ErrorReporting>Queue</ErrorReporting>
-      <AdditionalIncludeDirectories>$(SolutionDir)DX\Include\;$(SolutionDir)DX\DXUT\Core\;$(SolutionDir)DX\DXUT\Optional\;$(SolutionDir)Framework\;$(SolutionDir)Framework\Window\;$(SolutionDir)Framework\Graphics\;$(SolutionDir)Framework\Input\;$(SolutionDir)Framework\Sound\;$(SolutionDir)Framework\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DX\Include\;$(SolutionDir)DX\DXUT\Core\;$(SolutionDir)DX\DXUT\Optional\;$(SolutionDir)Framework\;$(SolutionDir)Framework\Window\;$(SolutionDir)Framework\Graphics\;$(SolutionDir)Framework\Input\;$(SolutionDir)Framework\Sound\;$(SolutionDir)Framework\DXUtils\;$(SolutionDir)Framework\Math\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PrecompiledHeaderOutputFile>$(SolutionDir)Build\$(Configuration)\Framework.pch</PrecompiledHeaderOutputFile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -143,7 +143,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="DXUtils.h" />
+    <ClInclude Include="DXUtils\DXUtils.h" />
+    <ClInclude Include="DXUtils\MeshLoader10.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="Errors.h" />
     <ClInclude Include="Globals.h" />
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="DXUtils\MeshLoader10.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Graphics\GraphicsLayer.cpp" />
     <ClCompile Include="Graphics\Model.cpp" />

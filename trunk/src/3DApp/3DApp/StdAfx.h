@@ -42,7 +42,7 @@
 #include "..\Framework\Input\InputLayer.h"
 #include "..\Framework\Sound\Sound.h"
 #include "..\Framework\Sound\SoundLayer.h"
-#include "..\Framework\DXUtils.h"
+#include "..\Framework\DXUtils\DXUtils.h"
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ inserta declaraciones adicionales luego de la linea anterior.

@@ -6,6 +6,7 @@
 #include "..\Math3D\Tri.h"
 #include "..\Framework\Application.h"
 #include "..\Framework\Graphics\GraphicsLayer.h"
+#include "..\Framework\Graphics\Vertex.h"
 
 class TgcParser
 {
