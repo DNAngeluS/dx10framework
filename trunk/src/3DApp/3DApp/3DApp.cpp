@@ -3,10 +3,14 @@ using namespace std;
 
 class c3DApp : public cApplication, public iKeyboardReceiver
 {
-	cModel *m_pModel;
 	wstring m_filename;
 	wstring m_file;
+
+	TgcLoader* m_pLoader;
+
+	cModel *m_pModel;
 	cFile  *m_pFile;
+
 	void InitLights();
 
 public:
@@ -33,6 +37,10 @@ public:
 		m_filename = L"..\\Media\\RABBIT.O3D";
 		m_file = Application()->m_dAppMedia + L"Box-TgcScene.xml";
 		m_pVertexBuffer = NULL;
+
+		//m_pLoader = new TgcLoader();
+
+		//m_pLoader->loadMesh(m_file.c_str());
 	}
 
 	~c3DApp()
@@ -93,4 +101,5 @@ void c3DApp::DoFrame( float timeDelta )
 	m_pModel->Draw();
 
 	Graphics()->Present();
+
 }

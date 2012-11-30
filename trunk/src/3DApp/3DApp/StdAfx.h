@@ -44,6 +44,10 @@
 #include "..\Framework\Sound\SoundLayer.h"
 #include "..\Framework\DXUtils\DXUtils.h"
 
+#include "..\TgcViewer\Utils\TgcXml.h"
+#include "..\TgcViewer\Utils\TgcParser.h"
+#include "..\TgcViewer\Utils\TgcLoader.h"
+
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ inserta declaraciones adicionales luego de la linea anterior.
 

@@ -2,11 +2,32 @@
 #include "Mesh.h"
 
 
-cMesh::cMesh(const LPCTSTR filename)
+cMesh::cMesh()
 {
+    m_pMesh = NULL;
+
+    //m_NumAttribTableEntries = 0;
+    //m_pAttribTable = NULL;
+
+    ZeroMemory( m_strMediaDir, sizeof( m_strMediaDir ) );
 	// Setup vertex and index buffers
 	m_pVertexBuffer = NULL;
 	m_pIndexBuffer = NULL;
+}
+
+
+cMesh::~cMesh()
+{
+	SafeRelease(m_pVertexBuffer);
+	SafeRelease(m_pIndexBuffer);
+}
+
+void cMesh::Create()
+{
+	std::vector< sTri >		tris;
+	std::vector< sTri >		colors;
+	std::vector< sTri >		textures;
+
 
 	D3D10_BUFFER_DESC descBuffer; //Se crea la estructura que describe el vertexBuffer
 	memset(&descBuffer, 0, sizeof(descBuffer));
@@ -18,7 +39,7 @@ cMesh::cMesh(const LPCTSTR filename)
    
 	D3D10_SUBRESOURCE_DATA resData;
 	memset(&resData, 0, sizeof(resData));
-    resData.pSysMem = &m_verts[0];
+	resData.pSysMem = VertData();
 	Graphics()->GetDevice()->CreateBuffer(&descBuffer, &resData, &m_pVertexBuffer); //Creacion del VertexBuffer
 
 	descBuffer.Usage = D3D10_USAGE_DEFAULT; //Se crea la estructura que describe el IndexBuffer
@@ -26,7 +47,7 @@ cMesh::cMesh(const LPCTSTR filename)
     descBuffer.BindFlags = D3D10_BIND_INDEX_BUFFER;
     descBuffer.CPUAccessFlags = 0;
     descBuffer.MiscFlags = 0;
-	resData.pSysMem = &m_tris[0];
+	resData.pSysMem = IdxData();
     Graphics()->GetDevice()->CreateBuffer(&descBuffer, &resData, &m_pIndexBuffer); //Creacion del IndexBuffer
 
 	D3DX10_IMAGE_LOAD_INFO loadInfo;
@@ -46,21 +67,20 @@ cMesh::cMesh(const LPCTSTR filename)
 	D3DX10CreateMesh(Graphics()->GetDevice(), VERTEXLAYOUT , sizeof(VERTEXLAYOUT),
 		cDefaultVertex::Semantics(cDefaultVertex::POSITION), NumVerts(), NumTris(), D3DX10_MESH_32_BIT, &m_pMesh);
 
-}
+	m_pMesh->SetVertexData(0, (void *)VertData());
 
+	m_pMesh->SetIndexData((void *)IdxData(), m_VertexIndex.size());
 
-cMesh::~cMesh()
-{
-	SafeRelease(m_pVertexBuffer);
-	SafeRelease(m_pIndexBuffer);
+    //pMesh->SetAttributeData( (UINT*)m_Attributes.GetData() );
+    //m_Attributes.RemoveAll();
 }
 
 void cMesh::Scale(float amt)
 {
-	int size = m_verts.size();
+	int size = m_Vertex.size();
 	for(int i=0; i<size; i++)
 	{
-		D3DXVec3Scale(&m_verts[i].vPosition, &m_verts[i].vPosition, amt);
+		D3DXVec3Scale(&m_Vertex[i].vPosition, &m_Vertex[i].vPosition, amt);
 	}
 }
 
@@ -90,10 +110,9 @@ void cMesh::Draw()
     Graphics()->GetDefaultTechnique()->GetDesc(&descTechnique);
     for(UINT uiCurPass = 0; uiCurPass < descTechnique.Passes; uiCurPass++)
     {
-		//Graphics()->GetDevice()->PSSetShaderResources(1, 1, &m_pSRView); //Pasar la view
 		Graphics()->SetTexture(0, m_pSRView);
         Graphics()->GetDefaultTechnique()->GetPassByIndex(uiCurPass)->Apply(0);
-		Graphics()->GetDevice()->DrawIndexed(m_tris.size() * 3, 0, 0);
+		Graphics()->GetDevice()->DrawIndexed(m_VertexIndex.size() * 3, 0, 0);
     }	
 }
 
@@ -113,10 +132,10 @@ void cMesh::UpdateTransform()
 float cMesh::GenRadius()
 {
 	float best = 0.f;
-	int size = m_verts.size();
+	int size = m_Vertex.size();
 	for(int i=0; i<size; i++)
 	{
-		float curr = D3DXVec3Length(&m_verts[i].vPosition);
+		float curr = D3DXVec3Length(&m_Vertex[i].vPosition);
 		if(curr > best)
 			best = curr;
 	}
