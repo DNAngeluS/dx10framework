@@ -393,7 +393,8 @@ void cGraphicsLayer::CreateDefaultShader()
 
 	ID3D10Blob* pErrors = 0;
 	// Crea el efecto predeterminado
-	r = D3DX10CreateEffectFromFile(L"../Framework/Graphics/DefaultShader.fx", NULL, NULL, "fx_4_0", shaderFlags, 0, 
+	wstring defaultSahderPath = Application()->m_dMedia+L"Shaders\\DefaultShader.fx";
+	r = D3DX10CreateEffectFromFile(defaultSahderPath.c_str(), NULL, NULL, "fx_4_0", shaderFlags, 0, 
                                      m_pDevice, NULL, NULL, &m_pDefaultEffect, &pErrors, NULL);
 	if(pErrors)
 	{

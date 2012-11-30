@@ -9,12 +9,13 @@ TgcParser::TgcParser(void)
 {
 }
 
-void TgcParser::tgcSceneLoader(const LPCTSTR filename)
+void TgcParser::mesh(const LPCTSTR filename, cMesh** mesh)
 {
 	TgcXml file;	
 
 	const WCHAR*	tag;
 	const WCHAR*	value;
+	WCHAR			previous_directory[MAX_PATH] = {'\0'};
 	IXmlReader*		pReader;
 	UINT			iAtributeCount;
 
@@ -35,8 +36,16 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 	std::wstring			modelName;
 	std::wstring			modelTexture;
 
+	std::wstring			working_directory, path;
+
 	file.Open(filename);
 	pReader = file.GetPointer();
+	
+	path.append(filename);
+	working_directory = path.substr(0, path.find_last_of('\\', path.size()) ) + L"\\";
+
+	GetCurrentDirectory(MAX_PATH, previous_directory);
+	SetCurrentDirectory(path.c_str());
 
 	file.Read();
 
@@ -97,7 +106,10 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 			file.Read(); //<bitmap>
 			file.Read(); //Text_node
 			pReader->GetValue(&value, NULL);
-			modelTexture.append(Application()->m_dAppMedia+L"Textures\\");
+
+			//GetCurrentDirectory(MAX_PATH, path);
+			modelTexture.append(working_directory);
+			modelTexture.append(L"Textures\\");
 			modelTexture.append(value);
 			file.Read(); //</bitmap>
 
@@ -380,6 +392,8 @@ void TgcParser::tgcSceneLoader(const LPCTSTR filename)
 	file.Read(); //</meshes>
 
 	file.Read(); //</tgcScene>
+
+	SetCurrentDirectory(previous_directory);
 
 }
 

@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="Utils\TgcLoader.cpp" />
     <ClCompile Include="Utils\TgcXml.cpp" />
     <ClCompile Include="Utils\TgcParser.cpp" />
   </ItemGroup>
@@ -108,6 +109,7 @@
     <ClInclude Include="Helper.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Utils\TgcLoader.h" />
     <ClInclude Include="Utils\TgcXml.h" />
     <ClInclude Include="Utils\TgcParser.h" />
   </ItemGroup>
