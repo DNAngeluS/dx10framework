@@ -1,0 +1,3 @@
+This project it has been discontinued from this repository. 
+It has been moved to bitbucket and will have a copy in Github soon enought.
+Please read the README in docs if you want to build it.

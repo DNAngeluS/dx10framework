@@ -12,9 +12,12 @@
 class TgcParser
 {
 public:
+	const LPCTSTR NAME = L"name";
+	enum
 	TgcParser(void);
 	~TgcParser(void);
 
 	void mesh(const LPCTSTR filename, cMesh** mesh);
+	void me(const LPCTSTR filename, cMesh** mesh)
 };
 
