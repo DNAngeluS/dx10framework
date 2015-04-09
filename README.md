@@ -1,6 +1,6 @@
 #DX Framework
 
-This project was builded for learning porpouses, it's not ment to be used at all. The code it's based on the one provided with the book "Advance 3D Game Programming with DirectX 10", Peter Walsh.
+This project was builded for learning porpouses, it's not meant to be used at all. The code it's based on the one provided with the book "Advance 3D Game Programming with DirectX 10", Peter Walsh.
 Hopefully will help someone to understand a little more about Computer Graphics Programming.
 
 
